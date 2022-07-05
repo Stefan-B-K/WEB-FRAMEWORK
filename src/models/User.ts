@@ -1,33 +1,21 @@
-import axios from "axios";
 import { Events } from "./Events";
+import { Sync } from "./Sync";
+import { Attributes } from "./Attributes";
 
-interface UserProps {
+export interface UserProps {
     id?: number
     name?: string
     age?: number
 }
 
+const ROOT_URL = 'http://localhost:3000/users'
+
 export class User {
-    events: Events = new Events()
+    public events: Events = new Events()
+    public sync: Sync<UserProps> = new Sync<UserProps>(ROOT_URL)
+    public attributes: Attributes<UserProps>
 
-    constructor (private data: UserProps) {}
-
-    get (prop: string): string | number | undefined {
-        return this.data[prop as keyof UserProps]
-    }
-
-    set (update: UserProps): void {
-        Object.assign(this.data, update)
-    }
-
-    async fetch (): Promise<void> {
-        const response = await axios.get(`http://localhost:3000/users/${this.get('id')}`)
-        this.set(response.data)
-    }
-
-    save(): void {
-        const id = this.get('id')
-        if (id) axios.put(`http://localhost:3000/users/${id}`, this.data)
-        else axios.post('http://localhost:3000/users', this.data)
+    constructor (attrs: UserProps) {
+        this.attributes = new Attributes<UserProps>(attrs)
     }
 }
