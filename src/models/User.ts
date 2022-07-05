@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
+import { Events } from "./Events";
 
 interface UserProps {
     id?: number
@@ -6,13 +7,10 @@ interface UserProps {
     age?: number
 }
 
-type Callback = () => void
-
 export class User {
-    events: { [key: string]: Callback[] } = {}
+    events: Events = new Events()
 
-    constructor (private data: UserProps) {
-    }
+    constructor (private data: UserProps) {}
 
     get (prop: string): string | number | undefined {
         return this.data[prop as keyof UserProps]
@@ -20,18 +18,6 @@ export class User {
 
     set (update: UserProps): void {
         Object.assign(this.data, update)
-    }
-
-    on (event: string, callback: Callback): void {
-        const callbacks = this.events[event] || []
-        callbacks.push(callback)
-        this.events[event] = callbacks
-    }
-
-    trigger (event: string): void {
-        const callbacks = this.events[event]
-        if (!callbacks || !callbacks.length) return
-        callbacks.forEach(callback => callback())
     }
 
     async fetch (): Promise<void> {
