@@ -10,7 +10,7 @@ export interface UserProps {
     age?: number
 }
 
-const ROOT_URL = 'http://localhost:3000/users'
+const ROOT_URL = 'http://localhost:3001/users'
 
 export class User extends Model<UserProps> {
     static createUser (attrs: UserProps): User {
@@ -23,7 +23,7 @@ export class User extends Model<UserProps> {
 
     static createUserCollection() : Collection<User, UserProps> {
         return new Collection<User, UserProps>(
-            'http://localhost:3000/users',
+            ROOT_URL,
             (json: UserProps) => User.createUser(json)
         )
     }
