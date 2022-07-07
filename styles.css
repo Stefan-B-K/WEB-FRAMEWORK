@@ -22,10 +22,24 @@ body {
     max-width: 1100px;
     border-radius: 20px;
     margin: 40px auto 40px auto;
-    padding: 10px 15px 20px 15px;
+    padding: 20px 15px 10px 15px;
     box-sizing: border-box;
-    background: #ecf3f0;
     box-shadow: 14px 14px 20px #cbd1cd, -14px -14px 20px white;
+}
+
+.card {
+    margin: 5px auto;
+    padding-top: 5px;
+    height: 50px;
+    display: inline-block;
+    width: 98%;
+    max-width: 300px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px #cbced1, -1px -1px 1px white;
+    font-size: medium;
 }
 
 label, div {
@@ -81,4 +95,29 @@ input:focus {
 
 ::placeholder {
     color: #b1d0b5;
+}
+
+
+@media only screen and (min-width: 580px) {
+    #user-list.container {
+        column-count: 2;
+        margin: 40px auto 10px auto;
+        padding: 10px 15px 10px 15px;
+    }
+}
+
+@media only screen and (min-width: 780px) {
+    #user-list.container {
+        column-count: 3;
+        margin: 40px auto 10px auto;
+        padding: 25px 10px 10px 10px;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    #user-list.container {
+        column-count: 4;
+        margin: 40px auto 10px auto;
+        padding: 10px 5px 10px 5px;
+    }
 }

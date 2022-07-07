@@ -5,6 +5,7 @@ export abstract class View<T extends Model<K>, K extends Identifiable> {
 
     constructor (public parentNode: Element, public model: T) {
         this.model.on('change', () => this.render())
+        this.model.on('save', () => location.reload())
     }
 
     abstract get template (): string
