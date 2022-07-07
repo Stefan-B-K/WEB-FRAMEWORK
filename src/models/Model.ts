@@ -16,7 +16,7 @@ interface Events {
     trigger (event: string): void
 }
 
-interface Identifiable {
+export interface Identifiable {
     id?: number
 }
 

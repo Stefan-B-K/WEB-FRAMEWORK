@@ -19,6 +19,16 @@
       "name": "Anna",
       "age": 22,
       "id": 4
+    },
+    {
+      "name": "StefanBK",
+      "age": 17,
+      "id": 5
+    },
+    {
+      "name": "Elena",
+      "age": 74,
+      "id": 6
     }
   ]
 }
