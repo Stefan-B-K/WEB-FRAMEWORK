@@ -1,4 +1,4 @@
-import { AxiosPromise, AxiosResponse } from "axios";
+import { AxiosPromise } from "axios";
 
 interface ModelAttributes<T> {
     set (update: T): void
@@ -27,17 +27,11 @@ export class Model<T extends Identifiable> {
         private sync: Sync<T>
     ) {}
 
-    get on () {
-        return this.events.on
-    }
+    on = this.events.on
 
-    get trigger () {
-        return this.events.trigger
-    }
+    trigger = this.events.trigger
 
-    get get () {
-        return this.attributes.get
-    }
+    get = this.attributes.get
 
     set (update: T): void {
         this.attributes.set(update)
@@ -48,12 +42,12 @@ export class Model<T extends Identifiable> {
         const id = this.attributes.get('id')
 
         if (typeof id !== 'number') throw new Error('No data found')
-        this.sync.fetch(id).then((response: AxiosResponse): void => this.set(response.data))
+        this.sync.fetch(id).then((response): void => this.set(response.data))
     }
 
     save (): void {
         this.sync.save(this.attributes.getAll())
-            .then((_response: AxiosResponse): void => this.trigger('save'))
+            .then((_response): void => this.trigger('save'))
             .catch(() => this.trigger('error'))
     }
 }

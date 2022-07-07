@@ -1,38 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Some Name",
-      "age": 0
+      "name": "Ivan",
+      "age": 30,
+      "id": 1
     },
     {
-      "name": "Emil",
-      "age": 33,
+      "name": "Asen",
+      "age": 35,
       "id": 2
     },
     {
-      "name": "Ivan",
-      "age": 23,
-      "id": 3
+      "id": 3,
+      "name": "Stefan",
+      "age": 36
     },
     {
-      "id": 4,
-      "name": "Asen",
-      "age": 43
-    },
-    {
-      "name": "Ana",
-      "age": 13,
-      "id": 5
-    },
-    {
-      "name": "Niki",
-      "id": 6
-    },
-    {
-      "name": "Last One",
-      "age": 111,
-      "id": 7
+      "name": "Anna",
+      "age": 22,
+      "id": 4
     }
   ]
 }
