@@ -1,14 +1,27 @@
 import { User } from "./models/User"
 import { UserEdit } from "./views/UserEdit";
+import { UserList } from "./views/UserList";
 
 
-const user = User.createUser({ })
+const user = User.createUser({})
+const userRoot = document.getElementById('user')
 
-const root = document.getElementById('root')
-if (root) {
-    const userEdit = new UserEdit(root, user)
-    userEdit.render()
-    console.log(userEdit)
-} else {
-    throw new Error('Root element not found')
-}
+if (userRoot) new UserEdit(userRoot, user).render()
+else throw new Error('Root element not found')
+
+
+const users = User.createUserCollection()
+const userListRoot = document.getElementById('user-list')
+
+users.on('change', () => {
+    if (userListRoot) new UserList(userListRoot, users).render()
+    else throw new Error('Root element not found')
+})
+
+users.fetch()
+
+
+
+
+
+

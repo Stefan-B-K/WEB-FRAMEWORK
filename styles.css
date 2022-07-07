@@ -10,8 +10,6 @@ body {
     margin: 0;
     color: #209428;
     background: #ecf3f0;
-    display: flex;
-    align-items: center;
     text-align: center;
     justify-content: center;
     overflow-y: scroll;
