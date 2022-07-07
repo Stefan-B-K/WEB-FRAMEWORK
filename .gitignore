@@ -149,5 +149,3 @@ database/*.sqlite
 build
 
 public/assets
-
-db.json
