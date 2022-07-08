@@ -2,7 +2,6 @@ import { User } from "./models/User"
 import { UserEdit } from "./views/UserEdit";
 import { UserList } from "./views/UserList";
 
-
 const user = User.createUser({})
 const userRoot = document.getElementById('user')
 

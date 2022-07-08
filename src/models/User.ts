@@ -10,7 +10,7 @@ export interface UserProps {
     age?: number
 }
 
-const ROOT_URL = 'http://localhost:3001/users'
+const ROOT_URL = 'https://json-server.istef.ml/users'
 
 export class User extends Model<UserProps> {
     static createUser (attrs: UserProps): User {
